@@ -1,0 +1,14 @@
+spring:
+  http:
+    encoding:
+      enabled: true
+      force: true
+  application:
+    name: consumer-gateway
+  output:
+    ansi:
+      enabled: always
+  security:
+    user:
+      name: lan
+      password: lan

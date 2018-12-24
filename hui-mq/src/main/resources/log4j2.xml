@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %t [%p] %c{1} (%F:%L) %msg%n"/>
+        </Console>
+        <XMDFile name="applog" fileName="app.log" xmdFilePath="/data/applogs">
+            <Filters>
+                <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </XMDFile>
+        <XMDFile name="error" fileName="error.log" xmdFilePath="/data/applogs" includeLocation="true">
+            <Filters>
+                <ThresholdFilter level="WARN" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </XMDFile>
+        <CatAppender name="cat"/>
+    </Appenders>
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="console"/>
+            <AppenderRef ref="applog"/>
+            <AppenderRef ref="error"/>
+            <AppenderRef ref="cat"/>
+        </Root>
+    </Loggers>
+</Configuration>

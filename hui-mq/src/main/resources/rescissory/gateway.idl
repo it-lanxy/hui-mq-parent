@@ -1,0 +1,6 @@
+namespace java com.dianping.hui.mq.thrift
+
+service IConsumerGateway {
+    bool ping();
+    i32 consume(1: string bizAlias, 2: string data);
+}
